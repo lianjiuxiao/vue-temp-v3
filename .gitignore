@@ -19,5 +19,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
-/node_modules
-/node_modules.zip

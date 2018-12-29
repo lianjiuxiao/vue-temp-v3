@@ -1,4 +1,4 @@
-# hello-world
+# vue-temp-v3
 
 ## Project setup
 ```
