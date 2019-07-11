@@ -4,6 +4,7 @@ import router from '@/router/index'
 import store from '@/store/store'
 import plugins from '@/common/mixins/index'
 import mock from '@/network/mockNetWork'
+import './plugins/iview.js'
 
 Vue.config.productionTip = false
 Vue.use(router)
