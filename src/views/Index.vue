@@ -1,15 +1,19 @@
 <template>
-  <div>
-    <router-link :to="{ path: '/my'}">MY</router-link>
-    <router-link :to="{ path: '/ui'}">ui</router-link>
-    <router-view/>
-  </div>
+    <div>
+        <HelloWorld msg="Welcome to Your Vue.js App"/>
+        <router-view/>
+    </div>
 </template>
 
 <script>
-  export default {
-    name: "index",
-  }
+    import HelloWorld from '@/components/HelloWorld.vue'
+
+    export default {
+        name: "index",
+        components: {
+            HelloWorld
+        }
+    }
 </script>
 
 <style scoped>

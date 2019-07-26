@@ -15,6 +15,7 @@ const global = {
     "agentType": "",
     "phone": "",
     "isLeader": "",
+    'access': [],
     "verificationCode": "",
     "agree": true,
     "withdrawStatus": 0

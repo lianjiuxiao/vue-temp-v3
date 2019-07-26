@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from '@/router/index'
-import store from '@/store/store'
+import store from '@/store/index'
 import plugins from '@/common/mixins/index'
 import mock from '@/network/mockNetWork'
 import './plugins/iview.js'
