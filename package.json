@@ -42,7 +42,8 @@
     ],
     "rules": {
       "no-unused-vars": "off",
-      "no-console": "off"
+      "no-console": "off",
+      "vue/no-parsing-error": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"

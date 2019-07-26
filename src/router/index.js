@@ -1,61 +1,41 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/views/Index'
-import MyInfo from '@/views/my/Index'
-import BankInfo from '@/views/my/BankInfo'
-import uiLayout from '@/views/ui/layout'
-import uiIndex from '@/views/ui/index'
-import uiElement from '@/views/ui/element'
-import uiIview from '@/views/ui/iview'
-import uiVuetify from '@/views/ui/vuetify'
 
 Vue.use(Router);
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      component: Index
-    },
-    {
-      path: '/index',
-      component: Index
-    },
-    {
-      path: '/my',
-      component: MyInfo,
-      children: [
+    mode: 'hash',
+    routes: [
         {
-          path: '/bankinfo',
-          component: BankInfo,
-        },
-      ]
-    },
-    {
-      path: '/ui',
-      name: 'ui',
-      component: uiLayout,
-      children: [
-        {
-          path: 'index',
-          name: 'index',
-          component: uiIndex,
+            path: '/',
+            name: '_home',
+            redirect: '/home',
+            component: () => import('@/views/Index'),
+            meta: {
+                hideInMenu: true,
+                notCache: true
+            },
+            children: [
+                {
+                    path: '/home',
+                    name: 'home',
+                    meta: {
+                        hideInMenu: true,
+                        title: '首页',
+                        notCache: true,
+                        icon: 'md-home'
+                    },
+                    component: () => import('@/views/Home')
+                }
+            ]
         },
         {
-          path: 'element',
-          name: 'element',
-          component: uiElement,
+            path: '/login',
+            name: 'login',
+            meta: {
+                title: 'Login - 登录',
+                hideInMenu: true
+            },
+            component: () => import('@/views/login/login')
         },
-        {
-          path: 'iview',
-          name: 'iview',
-          component: uiIview,
-        },
-        {
-          path: 'vuetify',
-          name: 'vuetify',
-          component: uiVuetify,
-        },
-      ]
-    },
-  ]
+    ]
 })

@@ -40,7 +40,6 @@ export default {
             created() {
             },
             mounted() {
-
             },
             activited() {
             },
@@ -82,7 +81,7 @@ export default {
             },
             filter: {},
             computed: {
-                ...mapGetters(['user'])
+                ...mapGetters(['global'])
             },
             watch: {},
         });
