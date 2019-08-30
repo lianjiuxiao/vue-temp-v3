@@ -1,32 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {setToken, getToken} from '../common/utils/utils'
+import {setToken, getToken, hasValue} from '../common/utils/utils'
 
 Vue.use(Router);
 
 const routes = [
     {
         path: '/',
-        name: '_home',
+        name: '_index',
         redirect: '/index',
         component: () => import('@/views/Index'),
         meta: {
             hideInMenu: true,
             notCache: true
         },
-        children: [
-            {
-                path: '/home',
-                name: 'home',
-                meta: {
-                    hideInMenu: true,
-                    title: '首页',
-                    notCache: true,
-                    icon: 'md-home'
-                },
-                component: () => import('@/views/Home')
-            }
-        ]
+
+    },
+    {
+        path: '/home',
+        name: 'home',
+        meta: {
+            hideInMenu: true,
+            title: '首页',
+            notCache: true,
+            icon: 'md-home'
+        },
+        component: () => import('@/views/Home'),
+        children: []
     },
     {
         path: '/index',
@@ -99,7 +99,10 @@ router.beforeEach((to, from, next) => {
             next() // 跳转
         } else {
             // 已经登陆 查看用户用户菜单权限列表
-            next()
+            // eslint-disable-next-line no-empty
+            if (hasValue(token)) {
+                next()
+            }
         }
     }
 })
